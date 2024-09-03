@@ -1,4 +1,4 @@
-package com.WowDespacito;
+package com.WDS;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

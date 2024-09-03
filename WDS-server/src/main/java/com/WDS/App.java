@@ -1,4 +1,4 @@
-package com.WowDespacito;
+package com.WDS;
 
 /**
  * Hello world!
