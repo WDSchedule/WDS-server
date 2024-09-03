@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc://localhost:3306/wds
+    username: WDS
+    password: '@WDS1024'
