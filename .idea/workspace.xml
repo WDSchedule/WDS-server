@@ -4,17 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32e70ca0-bc2b-4100-bbb2-8a56a7213669" name="更改" comment="创建springboot工程">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/pojo/account.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doucment/doucment.iml" afterDir="false" />
+    <list default="true" id="32e70ca0-bc2b-4100-bbb2-8a56a7213669" name="更改" comment="注册功能实现">
+      <change afterPath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/mapper/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/pojo/Result.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/2c5169bd-72a6-4952-9677-ad546ff1d77f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2c5169bd-72a6-4952-9677-ad546ff1d77f.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WDS-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WDS-server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doucment/sqlbat/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/doucment/sqlbat/init.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/pojo/account.java" beforeDir="false" afterPath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/pojo/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WDS-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/WDS-server/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WDS-server/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/WDS-server/target/classes/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,11 +27,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
@@ -40,43 +49,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.WDSServerApplication.executor": "Run",
-    "git-widget-placeholder": "master",
-    "jdk.selected.JAVA_MODULE": "22",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/wangz/code/WDschedule/doucment",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2850575",
-    "vue.rearranger.settings.migration": "true",
-    "数据库脚本.init.sql.executor": "Run"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.WDSServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev-login&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;22&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/wangz/code/WDschedule/doucment&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2850575&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
+    &quot;数据库脚本.init.sql.executor&quot;: &quot;Run&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql_aurora_aws",
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql_aurora_aws&quot;,
+      &quot;mysql&quot;
     ],
-    "RunConfigurationTargetLRU": [
-      "2c5169bd-72a6-4952-9677-ad546ff1d77f/schema/\"wds\""
+    &quot;RunConfigurationTargetLRU&quot;: [
+      &quot;2c5169bd-72a6-4952-9677-ad546ff1d77f/schema/\&quot;wds\&quot;&quot;
     ]
   }
-}]]></component>
-  <component name="RunManager" selected="数据库脚本.init.sql">
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.WDS.service" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.WDSServerApplication">
     <configuration name="init.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/doucment/sqlbat/init.sql" />
       <script-mode>FILE</script-mode>
@@ -98,8 +111,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="数据库脚本.init.sql" />
         <item itemvalue="Spring Boot.WDSServerApplication" />
+        <item itemvalue="数据库脚本.init.sql" />
       </list>
     </recent_temporary>
   </component>
@@ -121,7 +134,8 @@
       <updated>1725372860010</updated>
       <workItem from="1725372861125" duration="6037000" />
       <workItem from="1725379081757" duration="29000" />
-      <workItem from="1725548331515" duration="1969000" />
+      <workItem from="1725548331515" duration="2139000" />
+      <workItem from="1725626221471" duration="6391000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <option name="closed" value="true" />
@@ -147,7 +161,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725378978252</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="创建登录功能">
+      <option name="closed" value="true" />
+      <created>1725550446808</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1725550446808</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,6 +201,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="第一次提交" />
     <MESSAGE value="创建springboot工程" />
-    <option name="LAST_COMMIT_MESSAGE" value="创建springboot工程" />
+    <MESSAGE value="创建登录功能" />
+    <MESSAGE value="注册功能实现" />
+    <option name="LAST_COMMIT_MESSAGE" value="注册功能实现" />
   </component>
 </project>
