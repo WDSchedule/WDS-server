@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32e70ca0-bc2b-4100-bbb2-8a56a7213669" name="更改" comment="注册功能实现" />
+    <list default="true" id="32e70ca0-bc2b-4100-bbb2-8a56a7213669" name="更改" comment="实现JWT生成和验证，添加拦截器">
+      <change afterPath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/config/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/controller/ScheduleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/interceptors/LoginInterceptors.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/utils/JWTUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WDS-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WDS-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WDS-server/src/test/java/com/WDS/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/WDS-server/src/test/java/com/WDS/JWTTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WDS-server/target/classes/com/WDS/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/WDS-server/target/classes/com/WDS/controller/UserController.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +49,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "JUnit.JWTTest.testGen.executor": "Run",
+    "JUnit.JWTTest.testParse.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -45,7 +58,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.WDSServerApplication.executor": "Run",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "dev",
     "jdk.selected.JAVA_MODULE": "22",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/wangz/code/WDschedule/doucment",
@@ -82,6 +95,38 @@
       <data-source id="2c5169bd-72a6-4952-9677-ad546ff1d77f" namespace="schema/&quot;wds&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="JWTTest.testGen" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WDS-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.WDS.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.WDS" />
+      <option name="MAIN_CLASS_NAME" value="com.WDS.JWTTest" />
+      <option name="METHOD_NAME" value="testGen" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JWTTest.testParse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WDS-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.WDS.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.WDS" />
+      <option name="MAIN_CLASS_NAME" value="com.WDS.JWTTest" />
+      <option name="METHOD_NAME" value="testParse" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="WDSServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="WDS-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.WDS.WDSServerApplication" />
@@ -98,6 +143,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.WDSServerApplication" />
+        <item itemvalue="数据库脚本.init.sql" />
+        <item itemvalue="JUnit.JWTTest.testParse" />
+        <item itemvalue="JUnit.JWTTest.testGen" />
         <item itemvalue="数据库脚本.init.sql" />
       </list>
     </recent_temporary>
@@ -122,6 +170,8 @@
       <workItem from="1725379081757" duration="29000" />
       <workItem from="1725548331515" duration="2139000" />
       <workItem from="1725626221471" duration="6391000" />
+      <workItem from="1725779633407" duration="4472000" />
+      <workItem from="1726063437131" duration="5770000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <option name="closed" value="true" />
@@ -155,7 +205,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725550446808</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="注册功能实现">
+      <option name="closed" value="true" />
+      <created>1725634306879</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1725634306879</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +247,7 @@
     <MESSAGE value="创建springboot工程" />
     <MESSAGE value="创建登录功能" />
     <MESSAGE value="注册功能实现" />
-    <option name="LAST_COMMIT_MESSAGE" value="注册功能实现" />
+    <MESSAGE value="实现JWT生成和验证，添加拦截器" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现JWT生成和验证，添加拦截器" />
   </component>
 </project>
