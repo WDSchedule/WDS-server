@@ -931,17 +931,17 @@ wds|schema||WDS|localhost|UPDATE|G</Grants>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="290" parent="1" name="wds">
-      <LastIntrospectionLocalTimestamp>2024-09-05.15:27:17</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-09-12.14:23:21</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </schema>
     <user id="291" parent="1" name="WDS">
       <Host>localhost</Host>
     </user>
-    <table id="292" parent="290" name="account">
+    <table id="292" parent="290" name="user">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <column id="293" parent="292" name="account_no">
+    <column id="293" parent="292" name="id">
       <AutoIncrement>1</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
@@ -957,35 +957,37 @@ wds|schema||WDS|localhost|UPDATE|G</Grants>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="296" parent="292" name="create_time">
-      <DasType>datetime|0s</DasType>
+    <column id="296" parent="292" name="nickname">
+      <DasType>varchar(20)|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="297" parent="292" name="update_time">
-      <DasType>datetime|0s</DasType>
+    <column id="297" parent="292" name="email">
+      <DasType>varchar(30)|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="298" parent="292" name="nickname">
-      <DasType>varchar(20)|0s</DasType>
+    <column id="298" parent="292" name="portrait">
+      <DasType>varchar(100)|0s</DasType>
       <Position>6</Position>
     </column>
-    <index id="299" parent="292" name="PRIMARY">
-      <ColNames>account_no</ColNames>
+    <column id="299" parent="292" name="create_time">
+      <DasType>datetime|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="300" parent="292" name="update_time">
+      <DasType>datetime|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+    </column>
+    <index id="301" parent="292" name="PRIMARY">
+      <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="300" parent="292" name="unique_username">
+    <index id="302" parent="292" name="unique_username">
       <ColNames>username</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
-    </index>
-    <index id="301" parent="292" name="index_id">
-      <ColNames>account_no</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="302" parent="292" name="index_username">
-      <ColNames>username</ColNames>
-      <Type>btree</Type>
     </index>
     <key id="303" parent="292" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>

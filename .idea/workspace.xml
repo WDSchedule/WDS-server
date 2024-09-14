@@ -4,17 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32e70ca0-bc2b-4100-bbb2-8a56a7213669" name="更改" comment="实现JWT生成和验证，添加拦截器">
-      <change afterPath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/config/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/controller/ScheduleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/interceptors/LoginInterceptors.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/utils/JWTUtil.java" afterDir="false" />
+    <list default="true" id="32e70ca0-bc2b-4100-bbb2-8a56a7213669" name="更改" comment="实现用户修改头像url、修改信息、修改密码及其工具类">
+      <change afterPath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/utils/Md5Util.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/utils/ThreadLoaclUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WDS-server/src/test/java/com/WDS/ThreadLocalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2c5169bd-72a6-4952-9677-ad546ff1d77f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2c5169bd-72a6-4952-9677-ad546ff1d77f.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2024_9_5_11_03____.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2024_9_5_下午11_03_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WDS-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WDS-server/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WDS-server/src/test/java/com/WDS/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/WDS-server/src/test/java/com/WDS/JWTTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WDS-server/target/classes/com/WDS/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/WDS-server/target/classes/com/WDS/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/interceptors/LoginInterceptors.java" beforeDir="false" afterPath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/interceptors/LoginInterceptors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/pojo/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/pojo/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/WDS-server/src/main/java/com/WDS/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WDS-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/WDS-server/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WDS-server/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/WDS-server/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WDS-server/target/classes/com/WDS/controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WDS-server/target/classes/com/WDS/mapper/UserMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WDS-server/target/classes/com/WDS/pojo/Account.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WDS-server/target/classes/com/WDS/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WDS-server/target/classes/com/WDS/service/impl/UserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doucment/sqlbat/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/doucment/sqlbat/init.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +62,7 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "JUnit.JWTTest.testGen.executor": "Run",
     "JUnit.JWTTest.testParse.executor": "Run",
+    "JUnit.ThreadLocalTest.testThreadLocalSetAndGet.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -80,6 +92,9 @@
     ],
     "RunConfigurationTargetLRU": [
       "2c5169bd-72a6-4952-9677-ad546ff1d77f/schema/\"wds\""
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言": [
+      "MySQL"
     ]
   }
 }]]></component>
@@ -127,6 +142,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ThreadLocalTest.testThreadLocalSetAndGet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WDS-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.WDS.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.WDS" />
+      <option name="MAIN_CLASS_NAME" value="com.WDS.ThreadLocalTest" />
+      <option name="METHOD_NAME" value="testThreadLocalSetAndGet" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="WDSServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="WDS-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.WDS.WDSServerApplication" />
@@ -143,10 +174,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.WDSServerApplication" />
+        <item itemvalue="JUnit.ThreadLocalTest.testThreadLocalSetAndGet" />
         <item itemvalue="数据库脚本.init.sql" />
         <item itemvalue="JUnit.JWTTest.testParse" />
         <item itemvalue="JUnit.JWTTest.testGen" />
-        <item itemvalue="数据库脚本.init.sql" />
       </list>
     </recent_temporary>
   </component>
@@ -171,7 +202,10 @@
       <workItem from="1725548331515" duration="2139000" />
       <workItem from="1725626221471" duration="6391000" />
       <workItem from="1725779633407" duration="4472000" />
-      <workItem from="1726063437131" duration="5770000" />
+      <workItem from="1726063437131" duration="5803000" />
+      <workItem from="1726147680778" duration="5053000" />
+      <workItem from="1726230396798" duration="5503000" />
+      <workItem from="1726319326505" duration="7208000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <option name="closed" value="true" />
@@ -213,7 +247,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725634306879</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="实现JWT生成和验证，添加拦截器">
+      <option name="closed" value="true" />
+      <created>1726069238722</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1726069238722</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,6 +290,7 @@
     <MESSAGE value="创建登录功能" />
     <MESSAGE value="注册功能实现" />
     <MESSAGE value="实现JWT生成和验证，添加拦截器" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现JWT生成和验证，添加拦截器" />
+    <MESSAGE value="实现用户修改头像url、修改信息、修改密码及其工具类" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现用户修改头像url、修改信息、修改密码及其工具类" />
   </component>
 </project>
