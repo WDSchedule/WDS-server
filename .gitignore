@@ -1,2 +1,3 @@
 /WDS-server/target/
 /.idea/
+/WDS-server/src/main/resources/application.yml
