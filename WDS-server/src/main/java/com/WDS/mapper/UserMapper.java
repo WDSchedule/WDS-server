@@ -28,4 +28,7 @@ public interface UserMapper {
 
     @Update("update user set password=#{md5String}, update_time=#{now} where id=#{id}")
     void updatePwd(String md5String, LocalDateTime now, int id);
+
+    @Select("SELECT * FROM user WHERE email=#{email}")
+    User findByEmail(String email);
 }

@@ -21,4 +21,7 @@ public interface UserService {
 
     //校验客户密码
     boolean verifyPwd(String oldPwd);
+
+    // 根据邮箱查询用户信息
+    User findByEmail(String loginInfo);
 }

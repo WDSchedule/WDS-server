@@ -75,4 +75,9 @@ public class UserServiceImpl implements UserService {
         String username = (String) map.get("username");
         return findByUserName(username).getPassword().equals(Md5Util.getMd5String(oldPwd));
     }
+
+    @Override
+    public User findByEmail(String email) {
+        return userMapper.findByEmail(email);
+    }
 }

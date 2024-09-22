@@ -28,6 +28,9 @@ public class UserController {
 
     @PostMapping("/register")
     public Result register(@Email String email, @Pattern(regexp = "^\\S{5,50}$") String password) {
+        if (userService.findByEmail(email) != null) {
+            return Result.error("邮箱已被占用!");
+        }
         try {
             userService.register(email, password);
         }catch (Exception e) {
@@ -38,9 +41,15 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public Result<String> login(@Pattern(regexp = "^\\S{5,30}$") String username, @Pattern(regexp = "^\\S{5,50}$") String password){
-        // 根据用户名查询用户
-        User loginUser = userService.findByUserName(username);
+    public Result<String> login(@Pattern(regexp = "^\\S{5,30}$") String loginInfo, @Pattern(regexp = "^\\S{5,50}$") String password){
+        User loginUser = null;
+        // 如果满足邮箱格式，则优先检查邮箱
+        if (loginInfo.contains("@")){
+            loginUser = userService.findByEmail(loginInfo);
+        } else {
+            loginUser = userService.findByUserName(loginInfo);
+        }
+
 
         //判断用户是否存在
         if (loginUser == null){
@@ -48,7 +57,7 @@ public class UserController {
         }
 
         //验证密码
-        if (userService.findByUserName(username).getPassword().equals(Md5Util.getMd5String(password))){
+        if (loginUser.getPassword().equals(Md5Util.getMd5String(password))){
             //登录成功
             Map<String, Object> claims = new HashMap<>();
             claims.put("id", loginUser.getId());

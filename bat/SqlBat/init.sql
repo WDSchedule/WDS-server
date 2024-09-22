@@ -19,6 +19,7 @@ CREATE TABLE user
     create_time datetime NOT NULL,
     update_time datetime NOT NULL,
     UNIQUE KEY unique_username (username),
+    UNIQUE KEY unique_email (email),
     PRIMARY KEY (id)
 );
 
