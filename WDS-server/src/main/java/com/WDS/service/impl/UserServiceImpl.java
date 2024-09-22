@@ -80,4 +80,12 @@ public class UserServiceImpl implements UserService {
     public User findByEmail(String email) {
         return userMapper.findByEmail(email);
     }
+
+    @Override
+    public void updateUsername(String username){
+        LocalDateTime now = LocalDateTime.now();
+        Map<String, Object> map = ThreadLoaclUtil.get();
+        int id = (int) map.get("id");
+        userMapper.updateUsername(username, now, id);
+    }
 }

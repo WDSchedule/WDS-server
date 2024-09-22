@@ -24,4 +24,6 @@ public interface UserService {
 
     // 根据邮箱查询用户信息
     User findByEmail(String loginInfo);
+
+    void updateUsername(String username);
 }

@@ -9,6 +9,7 @@ import com.WDS.utils.Md5Util;
 import com.WDS.utils.ThreadLoaclUtil;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Pattern;
+import org.apache.ibatis.annotations.Mapper;
 import org.hibernate.validator.constraints.URL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
@@ -106,6 +107,24 @@ public class UserController {
 
         //更新密码
         userService.updatePwd(newPwd);
+        return Result.success();
+    }
+
+    @PatchMapping("updateUsername")
+    public Result updateUsername(@Pattern(regexp = "^[a-z0-9]{5,30}$") String username){
+        Map<String, Object> mapper = ThreadLoaclUtil.get();
+        String oldUsername = (String) mapper.get("username");
+        if (username.equals(oldUsername)){
+            return Result.error("用户名相同!");
+        }
+
+        if (userService.findByUserName(username)!=null)
+        {
+            return Result.error("用户名已存在!");
+        }
+
+        userService.updateUsername(username);
+
         return Result.success();
     }
 }

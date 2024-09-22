@@ -31,4 +31,7 @@ public interface UserMapper {
 
     @Select("SELECT * FROM user WHERE email=#{email}")
     User findByEmail(String email);
+
+    @Update("UPDATE user set username=#{username}, update_time=#{now} where id=#{id}")
+    void updateUsername(String username, LocalDateTime now, int id);
 }
