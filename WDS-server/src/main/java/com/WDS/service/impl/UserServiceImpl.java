@@ -1,9 +1,11 @@
 package com.WDS.service.impl;
 
+import com.WDS.exception.UserException;
 import com.WDS.mapper.UserMapper;
 import com.WDS.pojo.User;
 import com.WDS.service.UserService;
 import com.WDS.utils.Md5Util;
+import com.WDS.utils.RandomStringGeneratorUtil;
 import com.WDS.utils.ThreadLoaclUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,12 +25,28 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void register(String username, String password) {
+    public void register(String email, String password) throws UserException {
         //加密
         String md5String = Md5Util.getMd5String(password);
+        //随机生成用户名
+        String username = RandomStringGeneratorUtil.getRandomUsername(8);
+        //检测冲突、解决冲突
+        int step = 1;
+        while (findByUserName(username) != null) {
+            String newUsername = RandomStringGeneratorUtil.neighborString(username, step);
+            if (!newUsername.equals(username)) {
+                username = newUsername;
+            }else if (step != -1){
+                step = -1;
+            }else{
+                UserException e = new UserException("长度为8的用户名已全部被占用！！");
+                throw e;
+            }
+        }
 
         //添加
-        userMapper.add(username, md5String);
+        LocalDateTime now = LocalDateTime.now();
+        userMapper.add(username, email, md5String, now, now);
     }
 
     @Override

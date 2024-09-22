@@ -1,5 +1,6 @@
 package com.WDS.service;
 
+import com.WDS.exception.UserException;
 import com.WDS.pojo.User;
 
 public interface UserService {
@@ -7,7 +8,7 @@ public interface UserService {
     User findByUserName(String username);
 
     //注册
-    void register(String username, String password);
+    void register(String email, String password) throws UserException;
 
     //跟新用户信息
     void updateUserInfo(User user);

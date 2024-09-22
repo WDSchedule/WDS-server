@@ -7,6 +7,7 @@ import com.WDS.service.UserService;
 import com.WDS.utils.JWTUtil;
 import com.WDS.utils.Md5Util;
 import com.WDS.utils.ThreadLoaclUtil;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.URL;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,27 +27,14 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/register")
-    public Result register(@Pattern(regexp = "^\\S{5,30}$") String username, @Pattern(regexp = "^\\S{5,50}$") String password) {
-        //参数校验
-        /**
-         * Spring Validation
-         * Spring 提提供的参数校验框架，使用预定义的注解完成参数校验
-         * 步骤：
-         * 1。引入起步依赖
-         * 2. 参数前面添加Pattern注解
-         * 3. 在Controller类前添加Validation注解
-         */
-        //查询用户
-        User user = userService.findByUserName(username);
-        if (user == null) {
-            //没有占用
-            //执行注册
-            userService.register(username, password);
-            return Result.success();
-        } else {
-            //占用
-            return Result.error("用户名已存在");
+    public Result register(@Email String email, @Pattern(regexp = "^\\S{5,50}$") String password) {
+        try {
+            userService.register(email, password);
+        }catch (Exception e) {
+            return Result.error(e.getMessage());
         }
+
+        return Result.success();
     }
 
     @PostMapping("/login")

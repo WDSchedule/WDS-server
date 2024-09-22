@@ -15,10 +15,11 @@ public interface UserMapper {
     User findByUserName(String username);
 
     //添加
-    @Insert("insert into user(username, password, create_time, update_time)" +
-            " values(#{username}, #{password}, now(), now())")
-    void add(String username, String password);
+    @Insert("insert into user(username, password, email, create_time, update_time)" +
+            " values(#{username}, #{password}, #{email}, #{create_time}, #{update_time})")
+    void add(String username, String email, String password, LocalDateTime create_time, LocalDateTime update_time);
 
+    //更新用户信息
     @Update("update  user set nickname=#{nickname},email=#{email}, update_time=#{updateTime} where id=#{id}")
     void update(User user);
 
