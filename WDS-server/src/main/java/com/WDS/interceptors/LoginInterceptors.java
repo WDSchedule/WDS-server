@@ -20,7 +20,6 @@ public class LoginInterceptors implements HandlerInterceptor {
         //验证token
         try {
             Map<String, Object> claims = JWTUtil.parseToken(token);
-
             //把业务数据存在ThreadLocal中
             ThreadLoaclUtil.set(claims);
             return true;
