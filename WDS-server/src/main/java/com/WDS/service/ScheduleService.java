@@ -1,11 +1,12 @@
 package com.WDS.service;
 
+import com.WDS.pojo.PageBean;
 import com.WDS.pojo.Schedule;
 
 import java.util.List;
 
 public interface ScheduleService {
-    List<Schedule> getSummaryList();
+    PageBean<Schedule> getSummaryList(Integer pageNum, Integer pageSize, Integer status);
 
     Schedule getScheduleDetail(int id);
 

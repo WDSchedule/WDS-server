@@ -11,8 +11,7 @@ import java.util.List;
 
 @Mapper
 public interface ScheduleMapper {
-    @Select("select id, title, start_time, end_time, is_reminder, status FROM schedule WHERE user_id = #{userId};")
-    List<Schedule> getSummaryList(int userId);
+    List<Schedule> getSummaryList(int userId, Integer status);
 
     @Select("select * FROM schedule WHERE user_id=#{userId} AND id = #{id}")
     Schedule getScheduleDetail(int userId, int id);

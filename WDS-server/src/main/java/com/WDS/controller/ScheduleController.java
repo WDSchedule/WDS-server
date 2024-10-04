@@ -1,5 +1,6 @@
 package com.WDS.controller;
 
+import com.WDS.pojo.PageBean;
 import com.WDS.pojo.Result;
 import com.WDS.pojo.Schedule;
 import com.WDS.service.ScheduleService;
@@ -18,14 +19,17 @@ public class ScheduleController {
 
     // 获取日程概要列表
     @GetMapping("/getSummary")
-    public Result<List<Schedule>> getScheduleSummary() {
-        return Result.success(scheduleService.getSummaryList());
+    public Result<PageBean<Schedule>> getScheduleSummary(
+            Integer pageNum,
+            Integer pageSize,
+            @RequestParam(required = false) Integer status
+    ) {
+        return Result.success(scheduleService.getSummaryList(pageNum,pageSize, status));
     }
 
     /**
-     * 根据id查询日志详情
-     * @param id
-     * @return
+     * @param id 根据id查询日程详情
+     * @return 返回执行结果
      */
     @GetMapping("/getSchedule")
     public Result<Schedule> getScheduleDetail(int id) {
@@ -42,6 +46,8 @@ public class ScheduleController {
     // 更新日程状态
     @PutMapping("/updateStatus")
     public Result updateStatus(int id, int status) {
+        if (status < 0 || status > 3)
+            return Result.error("状态值错误！");
         scheduleService.updateStatus(id, status);
         return Result.success();
     }

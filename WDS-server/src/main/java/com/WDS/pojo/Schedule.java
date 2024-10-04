@@ -1,5 +1,6 @@
 package com.WDS.pojo;
 
+import com.WDS.anno.Status;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.groups.Default;
 import lombok.Data;
@@ -28,6 +29,7 @@ public class Schedule{
      * 2-已完成
      * 3-已失效
      */
+    @Status
     private int status;
 
     private LocalDateTime createTime;

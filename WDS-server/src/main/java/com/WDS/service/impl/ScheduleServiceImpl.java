@@ -1,9 +1,12 @@
 package com.WDS.service.impl;
 
 import com.WDS.mapper.ScheduleMapper;
+import com.WDS.pojo.PageBean;
 import com.WDS.pojo.Schedule;
 import com.WDS.service.ScheduleService;
 import com.WDS.utils.ThreadLoaclUtil;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,10 +21,22 @@ public class ScheduleServiceImpl implements ScheduleService {
     private ScheduleMapper scheduleMapper;
 
     @Override
-    public List<Schedule> getSummaryList(){
+    public PageBean<Schedule> getSummaryList(Integer pageNum, Integer pageSize, Integer status){
+        // 1. 创建pageBean对象
+        PageBean<Schedule> bp = new PageBean<>();
+
+        // 2. 开启分页查询 PageHelper
+        PageHelper.startPage(pageNum, pageSize);
+
+        // 3. 调用Mapper
         Map<String, Object> map = ThreadLoaclUtil.get();
         int userId = (int)map.get("id");
-        return scheduleMapper.getSummaryList(userId);
+
+        List<Schedule> sl = scheduleMapper.getSummaryList(userId, status);
+        Page<Schedule> sp = (Page<Schedule>) sl;
+        bp.setTotal(sp.getTotal());
+        bp.setItems(sp.getResult());
+        return bp;
     }
 
     @Override

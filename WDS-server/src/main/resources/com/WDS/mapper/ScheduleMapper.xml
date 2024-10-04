@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Maper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.WDS.mapper.ScheduleMapper">
+<!--    动态标签-->
+    <select id="getSummaryList" resultType="com.WDS.pojo.Schedule">
+        select * from schedule
+        <where>
+            <if test="status != null">
+                status = #{status}
+            </if>
+
+            and user_id = #{userId}
+        </where>
+    </select>
+</mapper>
