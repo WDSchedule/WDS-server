@@ -1,4 +1,5 @@
 /WDS-server/target
 .idea
+/WDS-server/src/main/resources/application.yml
 /WDS-server/src/main/resources/keystore.jks
 /WDS-server/src/test
