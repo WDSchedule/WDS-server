@@ -9,15 +9,16 @@ import com.WDS.utils.Md5Util;
 import com.WDS.utils.ThreadLoaclUtil;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Pattern;
-import org.apache.ibatis.annotations.Mapper;
 import org.hibernate.validator.constraints.URL;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @RequestMapping("/user")
@@ -26,6 +27,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
 
     @PostMapping("/register")
     public Result register(@Email String email, @Pattern(regexp = "^\\S{5,50}$") String password) {
@@ -64,6 +68,9 @@ public class UserController {
             claims.put("id", loginUser.getId());
             claims.put("username", loginUser.getUsername());
             String token = JWTUtil.getToken(claims);
+            //将token存储到redis
+            stringRedisTemplate.opsForValue().set("User_"+ loginUser.getId(), token, 1, TimeUnit.HOURS);
+
             return Result.success(token);
         }
         return Result.error("密码错误");
@@ -107,6 +114,12 @@ public class UserController {
 
         //更新密码
         userService.updatePwd(newPwd);
+
+        // 删除redis中的token
+        Map<String, Object> claims = ThreadLoaclUtil.get();
+        int id = (int) claims.get("id");
+        stringRedisTemplate.opsForValue().getOperations().delete("User_"+id);
+
         return Result.success();
     }
 
@@ -124,6 +137,10 @@ public class UserController {
         }
 
         userService.updateUsername(username);
+        // 删除redis中的token
+        Map<String, Object> claims = ThreadLoaclUtil.get();
+        int id = (int) claims.get("id");
+        stringRedisTemplate.opsForValue().getOperations().delete("User_"+id);
 
         return Result.success();
     }
