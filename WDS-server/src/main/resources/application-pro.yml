@@ -20,3 +20,7 @@ mybatis:
     map-underscore-to-camel-case: true #下划线命名与驼峰命名的自动转换
 server:
   port: 8443
+  ssl:
+    key-store: classpath:keystore.jks
+    key-store-password: ${SSL_KEY_PASSWORD}
+    key-alias: tomcat
