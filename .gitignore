@@ -1,6 +1,4 @@
-/WDS-server/target
+/target
 .idea
-/bat/BashBat/sbin/export.sh
-/WDS-server/src/main/resources/application.yml
-/WDS-server/src/main/resources/keystore.jks
-/WDS-server/src/test
+/src/main/resources/application.yml
+/src/main/resources/keystore.jks
