@@ -21,6 +21,6 @@ mybatis:
 server:
   port: 8443
   ssl:
-    key-store: ${KEYSTORE_PATH}
-    key-store-password: ${SSL_KEY_PASSWORD}
-    key-alias: tomcat
+    key-store: ${KEY_STORE}
+    key-store-password: ${KEY_STORE_PASSWORD}
+    key-alias: ${KEY_ALIAS}

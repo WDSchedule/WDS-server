@@ -12,6 +12,7 @@ public class WDSServerApplication
 {
     public static void main( String[] args )
     {
+        System.out.println(System.getenv("KEYSTORE_PATH"));
         SpringApplication.run(WDSServerApplication.class, args);
     }
 }
