@@ -1,4 +1,4 @@
 # 通用信息，指定生效的环境
 spring:
   profiles:
-    active: dev
+    active: pro
