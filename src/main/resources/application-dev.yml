@@ -18,7 +18,7 @@ mybatis:
 server:
   port: 8443
   # https配置
-  ssl:
-    key-store: classpath:keystore.jks
-    key-store-password: wdschedule
-    key-alias: tomcat
+#  ssl:
+#    key-store: ${KEYSTORE_PATH}
+#    key-store-password: wdschedule
+#    key-alias: tomcat

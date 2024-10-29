@@ -1,4 +1,5 @@
 /target
 .idea
+/env
 /src/main/resources/application.yml
 /src/main/resources/keystore.jks

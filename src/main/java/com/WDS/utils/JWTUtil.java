@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.Map;
 
 public class JWTUtil {
-    private static final String KEY = "wdad1238yasdw8nv";
+    private static final String KEY = System.getenv("JWT_KEY");
 
     //接收业务数据，生成token并返回
     public static String getToken(Map<String, Object> claims){
