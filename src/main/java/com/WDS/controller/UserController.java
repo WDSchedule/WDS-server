@@ -46,7 +46,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public Result<String> login(@Pattern(regexp = "^\\S{5,30}$") String loginInfo, @Pattern(regexp = "^\\S{5,50}$") String password){
+    public Result<String> login(@Pattern(regexp = "^\\S{5,50}$") String loginInfo, @Pattern(regexp = "^\\S{5,50}$") String password){
         User loginUser = null;
         // 如果满足邮箱格式，则优先检查邮箱
         if (loginInfo.contains("@")){
@@ -58,7 +58,7 @@ public class UserController {
 
         //判断用户是否存在
         if (loginUser == null){
-            return Result.error("用户名错误");
+            return Result.error("用户名/邮箱错误");
         }
 
         //验证密码
